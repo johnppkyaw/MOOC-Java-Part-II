@@ -19,4 +19,23 @@ public class LicensePlate {
         return country + " " + liNumber;
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if(object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if(object == this) {
+            return true;
+        }
+
+        LicensePlate inputLicensePlate = (LicensePlate) object;
+        return this.liNumber == inputLicensePlate.liNumber && this.country == inputLicensePlate.country;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.toString().hashCode();
+    }
+
 }
