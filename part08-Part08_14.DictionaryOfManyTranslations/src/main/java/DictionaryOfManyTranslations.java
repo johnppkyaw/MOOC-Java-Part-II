@@ -13,8 +13,11 @@ public class DictionaryOfManyTranslations {
   }
 
   public ArrayList<String> translate(String word) {
-    this.dictionary.putIfAbsent(word, new ArrayList<>());
-    return this.dictionary.get(word);
+    if(this.dictionary.containsKey(word)) {
+      return this.dictionary.get(word);
+    } else {
+      return new ArrayList<>();
+    }
   }
 
   public void remove(String word) {
